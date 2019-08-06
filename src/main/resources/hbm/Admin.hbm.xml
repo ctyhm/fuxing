@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.koali.pojo.Admin" table="admin" schema="" catalog="test">
+        <id name="sid">
+            <column name="sid" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="pwd">
+            <column name="pwd" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="comcode">
+            <column name="comcode" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="comname">
+            <column name="comname" sql-type="varchar(30)" length="30" not-null="false"/>
+        </property>
+        <property name="sname">
+            <column name="sname" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="sage">
+            <column name="sage" sql-type="int(10)" not-null="false"/>
+        </property>
+        <property name="ssex">
+            <column name="ssex" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="posi">
+            <column name="posi" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="adminlimit">
+            <column name="adminlimit" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="startdate">
+            <column name="startdate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="enddate">
+            <column name="enddate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="adminstate">
+            <column name="adminstate" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="semail">
+            <column name="semail" sql-type="varchar(30)" length="30" not-null="false"/>
+        </property>
+        <property name="sphone">
+            <column name="sphone" sql-type="varchar(15)" length="15" not-null="false"/>
+        </property>
+        <property name="address">
+            <column name="address" sql-type="varchar(100)" length="100" not-null="false"/>
+        </property>
+    </class>
+</hibernate-mapping>

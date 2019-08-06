@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:bean="http://www.alibaba.com/schema/stat"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.alibaba.com/schema/stat http://www.alibaba.com/schema/stat.xsd">
+    <!--扫描外部配置文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--配置连接池-->
+    <!--2.Druid数据池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <!--配置连接池属性-->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="3"/>
+        <property name="minIdle" value="3"/>
+        <property name="maxActive" value="20"/>
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="60000"/>
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="validationQuery" value="SELECT 1"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <!-- 配置监控统计拦截的filters -->
+        <property name="filters" value="stat"/>
+    </bean>
+    <!--配置Hibernate整合Spring-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <!--注入连接池-->
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props><!--方言-->
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.format_sql">true</prop>
+            </props>
+        </property>
+        <!--配置Hibernate的映射文件-->
+        <property name="mappingResources">
+            <list>
+                <value>hbm/Admin.hbm.xml</value>
+                <value>hbm/Grpuser.hbm.xml</value>
+                <value>hbm/Lccont.hbm.xml</value>
+                <value>hbm/Lcgrpcont.hbm.xml</value>
+                <value>hbm/Lcgrpinsured.hbm.xml</value>
+                <value>hbm/Lcgrpmeet.hbm.xml</value>
+                <value>hbm/Lcgrppol.hbm.xml</value>
+                <value>hbm/Lcmeet.hbm.xml</value>
+                <value>hbm/Lcpol.hbm.xml</value>
+                <value>hbm/Ldcom.hbm.xml</value>
+                <value>hbm/Salesman.hbm.xml</value>
+                <value>hbm/User.hbm.xml</value>
+            </list>
+        </property>
+        <property name="packagesToScan">
+            <list>
+                <value>com.koali.pojo</value>
+            </list>
+        </property>
+    </bean>
+
+
+
+<!--Action交给Spring来管理-->
+    <bean id="userAction" class="com.koali.action.UserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+        <property name="grpUserService" ref="grpUserService"/>
+        <property name="ldcomService" ref="ldcomService"/>
+        <property name="lcPolService" ref="lcPolService"/>
+        <property name="lcGrpPolService" ref="lcGrpPolService"/>
+    </bean>
+
+    <bean id="grpUserAction" class="com.koali.action.GrpUserAction" scope="prototype">
+        <property name="grpUserService" ref="grpUserService"/>
+    </bean>
+
+    <bean id="lcMeetAction" class="com.koali.action.LCMeetAction" scope="prototype">
+        <property name="lcMeetService" ref="lcMeetService"/>
+    </bean>
+    <bean id="lcGrpMeetAction" class="com.koali.action.LCGrpMeetAction" scope="prototype">
+        <property name="lcGrpMeetService" ref="lcGrpMeetService"/>
+    </bean>
+<!--************************************************************************************************-->
+
+    <bean id="ldComAction" class="com.koali.action.LDComAction" scope="prototype">
+        <property name="ldcomService" ref="ldcomService"/>
+    </bean>
+    <bean id="adminAction" class="com.koali.action.AdminAction" scope="prototype">
+        <property name="adminService" ref="adminService"/>
+        <property name="salesManService" ref="salesManService"/>
+    </bean>
+    <bean id="salesManAction" class="com.koali.action.SalesManAction" scope="prototype">
+        <property name="salesManService" ref="salesManService"/>
+    </bean>
+
+    <bean id="lcPolAction" class="com.koali.action.LCPolAction" scope="prototype">
+        <property name="lcPolService" ref="lcPolService"/>
+    </bean>
+    <bean id="grpPolAction" class="com.koali.action.LCGrpPolAction" scope="prototype">
+        <property name="lcGrpPolService" ref="lcGrpPolService"/>
+    </bean>
+
+    <bean id="lcContAction" class="com.koali.action.LCContAction" scope="prototype">
+        <property name="lcContService" ref="lcContService"/>
+        <property name="lcPolService" ref="lcPolService"/>
+    </bean>
+    <bean id="lcGrpContAction" class="com.koali.action.LCGrpContAction" scope="prototype">
+        <property name="lcGrpPolService" ref="lcGrpPolService"/>
+        <property name="lcGrpContService" ref="lcGrpContService"/>
+        <property name="lcGrpContInsuredService" ref="lcGrpContInsuredService"/>
+    </bean>
+    <bean id="lcGrpInsuredAction" class="com.koali.action.LCGrpInsuredAction" scope="prototype">
+        <property name="lcGrpContInsuredService" ref="lcGrpContInsuredService"/>
+        <property name="lcGrpContService" ref="lcGrpContService"/>
+    </bean>
+<!--Action交给Spring来管理结束-->
+
+
+<!--配置Service层的类-->
+    <bean id="userService" class="com.koali.service.Impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="grpUserService" class="com.koali.service.Impl.GrpUserServiceImpl">
+        <property name="grpUserDao" ref="grpUserDao"/>
+    </bean>
+    <bean id="lcMeetService" class="com.koali.service.Impl.LCMeetServiceImpl">
+        <property name="lcMeetDao" ref="lcMeetDao"/>
+    </bean>
+    <bean id="lcGrpMeetService" class="com.koali.service.Impl.LCGrpMeetServiceImpl">
+        <property name="lcGrpMeetDao" ref="lcGrpMeetDao"/>
+    </bean>
+<!--************************************************************************************************-->
+
+    <bean id="ldcomService" class="com.koali.service.Impl.LDComServiceImpl">
+        <property name="ldComDao" ref="ldComDao"/>
+    </bean>
+    <bean id="adminService" class="com.koali.service.Impl.AdminServiceImpl">
+        <property name="adminDao" ref="adminDao"/>
+    </bean>
+    <bean id="salesManService" class="com.koali.service.Impl.SalesManServiceImpl">
+        <property name="salesManDao" ref="salesManDao"/>
+    </bean>
+    <bean id="lcPolService" class="com.koali.service.Impl.LCPolServiceImpl">
+        <property name="lcPolDao" ref="lcPolDao"/>
+    </bean>
+    <bean id="lcGrpPolService" class="com.koali.service.Impl.LCGrpPolServiceImpl">
+        <property name="lcGrpPolDao" ref="lcGrpPolDao"/>
+    </bean>
+    <bean id="lcContService" class="com.koali.service.Impl.LCContServiceImpl">
+        <property name="lcContDao" ref="lcContDao"/>
+    </bean>
+    <bean id="lcGrpContService" class="com.koali.service.Impl.LCGrpContServiceImpl">
+        <property name="lcGrpContDao" ref="lcGrpContDao"/>
+    </bean>
+    <bean id="lcGrpContInsuredService" class="com.koali.service.Impl.LCGrpContInsuredServiceImpl">
+        <property name="lcGrpContInsuredDao" ref="lcGrpContInsuredDao"/>
+    </bean>
+<!--配置Service层的类结束-->
+
+
+<!--配置Dao层的类-->
+    <bean id="userDao" class="com.koali.dao.Impl.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="grpUserDao" class="com.koali.dao.Impl.GrpUserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="lcMeetDao" class="com.koali.dao.Impl.LCMeetDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="lcGrpMeetDao" class="com.koali.dao.Impl.LCGrpMeetDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+<!--************************************************************************************************-->
+
+    <bean id="ldComDao" class="com.koali.dao.Impl.LDComDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="adminDao" class="com.koali.dao.Impl.AdminDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="salesManDao" class="com.koali.dao.Impl.SalesManDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="lcPolDao" class="com.koali.dao.Impl.LCPolDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="lcGrpPolDao" class="com.koali.dao.Impl.LCGrpPolDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="lcContDao" class="com.koali.dao.Impl.LCContDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="lcGrpContDao" class="com.koali.dao.Impl.LCGrpContDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="lcGrpContInsuredDao" class="com.koali.dao.Impl.LCGrpContInsuredDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+<!--配置Dao层的类结束-->
+
+
+
+
+
+
+
+<!--配置事务管理-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+<!--开启事务注解-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

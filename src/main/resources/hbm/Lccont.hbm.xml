@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.koali.pojo.Lccont" table="lccont" schema="" catalog="test">
+        <id name="contNo">
+            <column name="ContNo" sql-type="varchar(30)" length="30"/>
+        </id>
+        <property name="polNo">
+            <column name="polNo" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="manageCom">
+            <column name="ManageCom" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="userid">
+            <column name="userid" sql-type="varchar(30)" length="30" not-null="false"/>
+        </property>
+        <property name="saleChnl">
+            <column name="SaleChnl" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="appntNo">
+            <column name="AppntNo" sql-type="varchar(30)" length="30" not-null="false"/>
+        </property>
+        <property name="appntName">
+            <column name="AppntName" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="appntSex">
+            <column name="AppntSex" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="appntBirthday">
+            <column name="AppntBirthday" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="appntIdType">
+            <column name="AppntIDType" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="appntIdNo">
+            <column name="AppntIDNo" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="appntprovince">
+            <column name="Appntprovince" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="appntcity">
+            <column name="Appntcity" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="appntcounty">
+            <column name="Appntcounty" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="appntaddress">
+            <column name="Appntaddress" sql-type="varchar(200)" length="200" not-null="false"/>
+        </property>
+        <property name="appntphone">
+            <column name="Appntphone" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="appntmailno">
+            <column name="Appntmailno" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="appntemail">
+            <column name="Appntemail" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="appntmerry">
+            <column name="Appntmerry" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="financemsg">
+            <column name="financemsg" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="health">
+            <column name="health" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="insuredName">
+            <column name="InsuredName" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="insuredSex">
+            <column name="InsuredSex" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="insuredBirthday">
+            <column name="InsuredBirthday" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="insuredIdType">
+            <column name="InsuredIDType" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="insuredIdNo">
+            <column name="InsuredIDNo" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="insuredwork">
+            <column name="Insuredwork" sql-type="int(10)" not-null="false"/>
+        </property>
+        <property name="insuredprovince">
+            <column name="Insuredprovince" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="insuredcity">
+            <column name="Insuredcity" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="insuredcounty">
+            <column name="Insuredcounty" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="insuredaddress">
+            <column name="Insuredaddress" sql-type="varchar(200)" length="200" not-null="false"/>
+        </property>
+        <property name="insuredphone">
+            <column name="Insuredphone" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="insuredmailno">
+            <column name="Insuredmailno" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="insuredemail">
+            <column name="Insuredemail" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="insuredmerry">
+            <column name="Insuredmerry" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="payMode">
+            <column name="PayMode" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="handlercode">
+            <column name="Handlercode" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="handlername">
+            <column name="Handlername" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="signCom">
+            <column name="SignCom" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="signDate">
+            <column name="SignDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="remark">
+            <column name="Remark" sql-type="varchar(1600)" length="1600" not-null="false"/>
+        </property>
+        <property name="prem">
+            <column name="Prem" sql-type="decimal(16,2)" precision="16" scale="2" not-null="false"/>
+        </property>
+        <property name="amnt">
+            <column name="Amnt" sql-type="decimal(35,2)" precision="35" scale="2" not-null="false"/>
+        </property>
+        <property name="cValiDate">
+            <column name="CValiDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="inputOpecode">
+            <column name="InputOpecode" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="inputOperator">
+            <column name="InputOperator" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="inputDate">
+            <column name="InputDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="approveFlag">
+            <column name="ApproveFlag" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="approveCode">
+            <column name="ApproveCode" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="approvename">
+            <column name="Approvename" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="approveDate">
+            <column name="ApproveDate" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="uwFlag">
+            <column name="UWFlag" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="uwOperatorcode">
+            <column name="UWOperatorcode" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="uwOperator">
+            <column name="UWOperator" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="uwDate">
+            <column name="UWDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="payflag">
+            <column name="payflag" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="contState">
+            <column name="contState" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="address">
+            <column name="Address" sql-type="varchar(80)" length="80" not-null="false"/>
+        </property>
+        <property name="zipCode">
+            <column name="ZipCode" sql-type="char(6)" length="6" not-null="false"/>
+        </property>
+        <property name="benefitName">
+            <column name="benefitName" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="benefitSex">
+            <column name="benefitSex" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="benefitBirthday">
+            <column name="benefitBirthday" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="benefitIdType">
+            <column name="benefitIDType" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="benefitIdNo">
+            <column name="benefitIDNo" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="benefitaddress">
+            <column name="benefitaddress" sql-type="varchar(200)" length="200" not-null="false"/>
+        </property>
+        <property name="benefitphone">
+            <column name="benefitphone" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="benefitmailno">
+            <column name="benefitmailno" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="benefitemail">
+            <column name="benefitemail" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="benefittype">
+            <column name="benefittype" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+    </class>
+</hibernate-mapping>

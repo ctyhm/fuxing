@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.koali.pojo.Lcgrpcont" table="lcgrpcont" schema="" catalog="test">
+        <id name="grpContNo">
+            <column name="GrpContNo" sql-type="varchar(30)" length="30"/>
+        </id>
+        <property name="grppolNo">
+            <column name="GrppolNo" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="specFlag">
+            <column name="SpecFlag" sql-type="varchar(255)" length="255" not-null="false"/>
+        </property>
+        <property name="grpuid">
+            <column name="grpuid" sql-type="varchar(30)" length="30" not-null="false"/>
+        </property>
+        <property name="saleChnl">
+            <column name="SaleChnl" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="manageCom">
+            <column name="ManageCom" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="appntNo">
+            <column name="AppntNo" sql-type="varchar(30)" length="30" not-null="false"/>
+        </property>
+        <property name="appntname">
+            <column name="Appntname" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="insuredType">
+            <column name="insuredType" sql-type="varchar(11)" length="11" not-null="false"/>
+        </property>
+        <property name="grpName">
+            <column name="GrpName" sql-type="varchar(200)" length="200" not-null="false"/>
+        </property>
+        <property name="businessType">
+            <column name="BusinessType" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="grpNature">
+            <column name="GrpNature" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="rgtMoney">
+            <column name="RgtMoney" sql-type="decimal(16,2)" precision="16" scale="2" not-null="false"/>
+        </property>
+        <property name="asset">
+            <column name="Asset" sql-type="decimal(16,2)" precision="16" scale="2" not-null="false"/>
+        </property>
+        <property name="mainBussiness">
+            <column name="MainBussiness" sql-type="varchar(60)" length="60" not-null="false"/>
+        </property>
+        <property name="corporation">
+            <column name="Corporation" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="fax">
+            <column name="Fax" sql-type="varchar(18)" length="18" not-null="false"/>
+        </property>
+        <property name="phone">
+            <column name="Phone" sql-type="varchar(18)" length="18" not-null="false"/>
+        </property>
+        <property name="getFlag">
+            <column name="GetFlag" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="satrap">
+            <column name="Satrap" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="eMail">
+            <column name="EMail" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="payMode">
+            <column name="PayMode" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="signCom">
+            <column name="SignCom" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="signDate">
+            <column name="SignDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="cValiDate">
+            <column name="CValiDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="manageFeeRate">
+            <column name="ManageFeeRate" sql-type="float(12)" precision="12" not-null="false"/>
+        </property>
+        <property name="peoples">
+            <column name="Peoples" sql-type="int(10)" not-null="false"/>
+        </property>
+        <property name="prem">
+            <column name="Prem" sql-type="decimal(16,2)" precision="16" scale="2" not-null="false"/>
+        </property>
+        <property name="amnt">
+            <column name="Amnt" sql-type="decimal(35,2)" precision="35" scale="2" not-null="false"/>
+        </property>
+        <property name="remark">
+            <column name="Remark" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="amntGrade">
+            <column name="AmntGrade" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="uwDate">
+            <column name="UWDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="uwOperator">
+            <column name="UWOperator" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="uwOperatorcode">
+            <column name="UWOperatorcode" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="uwFlag">
+            <column name="UWFlag" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="approveDate">
+            <column name="ApproveDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="approvename">
+            <column name="Approvename" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="approveCode">
+            <column name="ApproveCode" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="approveFlag">
+            <column name="ApproveFlag" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="inputDate">
+            <column name="InputDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="inputOperator">
+            <column name="InputOperator" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="payflag">
+            <column name="payflag" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+    </class>
+</hibernate-mapping>

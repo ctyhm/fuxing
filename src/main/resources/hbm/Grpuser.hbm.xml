@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.koali.pojo.Grpuser" table="grpuser" schema="" catalog="test">
+        <id name="grpuid">
+            <column name="grpuid" sql-type="varchar(30)" length="30"/>
+        </id>
+        <property name="uname">
+            <column name="uname" sql-type="varchar(200)" length="200" not-null="false"/>
+        </property>
+        <property name="address">
+            <column name="address" sql-type="varchar(200)" length="200" not-null="false"/>
+        </property>
+        <property name="grptype">
+            <column name="grptype" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="password">
+            <column name="password" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="phone">
+            <column name="phone" sql-type="varchar(15)" length="15" not-null="false"/>
+        </property>
+        <property name="makedate">
+            <column name="makedate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="grputype">
+            <column name="grputype" sql-type="varchar(8)" length="8" not-null="false"/>
+        </property>
+        <property name="grpustate">
+            <column name="grpustate" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+    </class>
+</hibernate-mapping>

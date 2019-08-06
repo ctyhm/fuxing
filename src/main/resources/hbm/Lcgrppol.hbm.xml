@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.koali.pojo.Lcgrppol" table="lcgrppol" schema="" catalog="test">
+        <id name="grpPolNo">
+            <column name="GrpPolNo" sql-type="varchar(20)" length="20"/>
+        </id>
+        <property name="kindCode">
+            <column name="KindCode" sql-type="varchar(3)" length="3" not-null="false"/>
+        </property>
+        <property name="riskCode">
+            <column name="RiskCode" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="manageCom">
+            <column name="ManageCom" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="grpName">
+            <column name="GrpName" sql-type="varchar(30)" length="30" not-null="false"/>
+        </property>
+        <property name="getRate">
+            <column name="GetRate" sql-type="decimal(18,6)" precision="18" scale="6" not-null="false"/>
+        </property>
+        <property name="bonusRate">
+            <column name="BonusRate" sql-type="decimal(10,4)" precision="10" scale="4" not-null="false"/>
+        </property>
+        <property name="maxMedFee">
+            <column name="MaxMedFee" sql-type="decimal(12,2)" precision="12" scale="2" not-null="false"/>
+        </property>
+        <property name="outPayFlag">
+            <column name="OutPayFlag" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="specFlag">
+            <column name="SpecFlag" sql-type="varchar(2)" length="2" not-null="false"/>
+        </property>
+        <property name="expPremium">
+            <column name="ExpPremium" sql-type="decimal(16,2)" precision="16" scale="2" not-null="false"/>
+        </property>
+        <property name="expAmnt">
+            <column name="ExpAmnt" sql-type="decimal(16,2)" precision="16" scale="2" not-null="false"/>
+        </property>
+        <property name="manageFeeRate">
+            <column name="ManageFeeRate" sql-type="float(12)" precision="12" not-null="false"/>
+        </property>
+        <property name="payIntv">
+            <column name="PayIntv" sql-type="smallint(5)" not-null="false"/>
+        </property>
+        <property name="cValiDate">
+            <column name="CValiDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="geppolstate">
+            <column name="geppolstate" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="operatorcode">
+            <column name="Operatorcode" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="grppolOperator">
+            <column name="grppolOperator" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="makeDate">
+            <column name="MakeDate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="waitPeriod">
+            <column name="WaitPeriod" sql-type="int(10)" not-null="false"/>
+        </property>
+    </class>
+</hibernate-mapping>

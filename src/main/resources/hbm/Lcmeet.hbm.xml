@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.koali.pojo.Lcmeet" table="lcmeet" schema="" catalog="test">
+        <id name="meetid">
+            <column name="meetid" sql-type="int(10)"/>
+        </id>
+        <property name="userid">
+            <column name="userid" sql-type="varchar(30)" length="30"/>
+        </property>
+        <property name="uname">
+            <column name="uname" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="lpname">
+            <column name="Lpname" sql-type="varchar(30)" length="30" not-null="false"/>
+        </property>
+        <property name="linsuredname">
+            <column name="Linsuredname" sql-type="varchar(30)" length="30" not-null="false"/>
+        </property>
+        <property name="comcode">
+            <column name="comcode" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="polNo">
+            <column name="PolNo" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="meetdate">
+            <column name="meetdate" sql-type="date(10)" not-null="false"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="phone">
+            <column name="phone" sql-type="varchar(15)" length="15" not-null="false"/>
+        </property>
+        <property name="detail">
+            <column name="detail" sql-type="varchar(200)" length="200" not-null="false"/>
+        </property>
+        <property name="meetstate">
+            <column name="meetstate" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+    </class>
+</hibernate-mapping>

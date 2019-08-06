@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="ssh" extends="struts-default" namespace="/">
+
+        <action name="User_*" class="userAction" method="{1}">
+            <result name="error">/a/register.jsp</result>
+            <result name="success" type="redirect">/a/login.jsp</result>
+            <result name="loginSuccess">/a/Home.jsp</result>
+            <result name="loginError">/a/login.jsp</result>
+            <result name="logout">/a/Home.jsp</result>
+            <result name="findper">/a/services_pol/persion_meet.jsp</result>
+            <result name="findgrp">/a/services_pol/grp_meet.jsp</result>
+            <result name="findERROR">/a/services_pol/null_user.jsp</result>
+
+            <result name="saveSuccess" type="redirectAction">User_findAll.action</result>
+            <result name="updateSuccess" type="redirectAction">User_findAll.action</result>
+            <result name="deleteSuccess" type="redirectAction">User_findAll.action</result>
+        </action>
+
+
+        <action name="Grpuser_*" class="grpUserAction" method="{1}">
+            <result name="error">/a/registerGrp.jsp</result>
+            <result name="success" type="redirect">/a/login.jsp</result>
+            <result name="saveSuccess" type="redirectAction">Grpuser_findAll.action</result>
+            <result name="updateSuccess" type="redirectAction">Grpuser_findAll.action</result>
+            <result name="deleteSuccess" type="redirectAction">Grpuser_findAll.action</result>
+        </action>
+
+        <action name="Meet_*" class="lcMeetAction" method="{1}">
+            <result name="findAll">/b/Meet.jsp</result>
+            <result name="noAdmin">/b/noAdmin.jsp</result>
+            <result name="limit">/b/limit.jsp</result>
+            <result name="saveSuccess">/a/services_pol/meetSuccess.jsp</result>
+            <result name="meetError">/a/services_pol/persion_meet.jsp</result>
+
+            <result name="updateSuccess" type="redirectAction">Meet_findAll.action</result>
+            <result name="deleteSuccess" type="redirectAction">Meet_findAll.action</result>
+        </action>
+
+        <action name="GrpMeet_*" class="lcGrpMeetAction" method="{1}">
+            <result name="findAll">/b/GrpMeet.jsp</result>
+            <result name="noAdmin">/b/noAdmin.jsp</result>
+            <result name="limit">/b/limit.jsp</result>
+            <result name="saveSuccess">/a/services_pol/meetSuccess.jsp</result>
+            <result name="meetError">/a/services_pol/grp_meet.jsp</result>
+
+            <result name="updateSuccess" type="redirectAction">GrpMeet_findAll.action</result>
+            <result name="deleteSuccess" type="redirectAction">GrpMeet_findAll.action</result>
+        </action>
+
+
+<!--系统端主页-->
+
+        <action name="bcheckok" class="com.koali.action.AdminAction" method="bcheckok">
+            <result name="success">/b/GrpCorrect.jsp</result>
+        </action>
+
+        <action name="bGrpcheckok" class="com.koali.action.AdminAction" method="bGrpcheckok">
+            <result name="success">/b/GrpCorrect.jsp</result>
+        </action>
+
+        <action name="bpayok" class="com.koali.action.AdminAction" method="bpayok">
+            <result name="success">/b/GrpCorrect.jsp</result>
+        </action>
+
+        <action name="bpolsign" class="com.koali.action.AdminAction" method="bpolsign">
+            <result name="success">/b/GrpCorrect.jsp</result>
+        </action>
+
+        <action name="bstatus" class="com.koali.action.AdminAction" method="bstatus">
+            <result name="success">/b/GrpCorrect.jsp</result>
+        </action>
+
+<!--系统端主页结束-->
+
+        <!--<action name="grppol" class="com.koali.action.UserAction" method="grpmeet">
+            <result name="success">/a/services_pol/grp_pol.jsp</result>
+            <result name="error">/a/services_pol/grp_pol.jsp</result>
+        </action>-->
+
+
+        <action name="LDCom_*" class="ldComAction" method="{1}">
+            <result name="findAll">/b/LDCom.jsp</result>
+            <result name="afindAll">/a/services_self/searchCom.jsp</result>
+            <result name="noAdmin">/b/noAdmin.jsp</result>
+            <result name="limit">/b/limit.jsp</result>
+            <result name="saveSuccess" type="redirectAction">LDCom_findAll.action</result>
+            <result name="updateSuccess" type="redirectAction">LDCom_findAll.action</result>
+            <result name="deleteSuccess" type="redirectAction">LDCom_findAll.action</result>
+        </action>
+
+        <action name="Admin_*" class="adminAction" method="{1}">
+            <result name="loginSuccess" type="redirect">/b/home.jsp</result>
+            <result name="loginError">/b/login.jsp</result>
+        </action>
+
+        <action name="Salesman_*" class="salesManAction" method="{1}">
+            <result name="findAll">/b/Salesman.jsp</result>
+            <result name="asearchcomein">/a/services_self/SalesmanSearch.jsp</result>
+            <result name="asearch">/a/services_self/searchSalesman.jsp</result>
+            <result name="asearchError">/a/services_self/SalesmanSearch.jsp</result>
+
+            <result name="noAdmin">/b/noAdmin.jsp</result>
+            <result name="limit">/b/limit.jsp</result>
+            <result name="saveSuccess" type="redirectAction">Salesman_findAll.action</result>
+            <result name="updateSuccess" type="redirectAction">Salesman_findAll.action</result>
+            <result name="deleteSuccess" type="redirectAction">Salesman_findAll.action</result>
+
+
+        </action>
+
+        <action name="LCPol_*" class="lcPolAction" method="{1}">
+            <result name="findAll">/b/Pol.jsp</result>
+            <result name="noAdmin">/b/noAdmin.jsp</result>
+            <result name="limit">/b/limit.jsp</result>
+            <result name="saveSuccess" type="redirectAction">LCPol_findAll.action</result>
+            <result name="updateSuccess" type="redirectAction">LCPol_findAll.action</result>
+            <result name="deleteSuccess" type="redirectAction">LCPol_findAll.action</result>
+        </action>
+
+        <action name="GrpPol_*" class="grpPolAction" method="{1}">
+            <result name="findAll">/b/GrpPol.jsp</result>
+            <result name="noAdmin">/b/noAdmin.jsp</result>
+            <result name="limit">/b/limit.jsp</result>
+            <result name="saveSuccess" type="redirectAction">GrpPol_findAll.action</result>
+            <result name="updateSuccess" type="redirectAction">GrpPol_findAll.action</result>
+            <result name="deleteSuccess" type="redirectAction">GrpPol_findAll.action</result>
+        </action>
+
+        <action name="LCCont_*" class="lcContAction" method="{1}">
+            <result name="searchOk">/b/Cont.jsp</result>
+            <result name="searchError">/b/No_result.jsp</result>
+            <result name="newCont">/b/Cont.jsp</result>
+            <result name="comein">/b/Cont.jsp</result>
+            <result name="contInput">/b/ContInput.jsp</result>
+
+            <result name="bcheck">/b/Check.jsp</result>
+            <result name="applyOk">/b/ContCheck.jsp</result>
+            <result name="checkOk">/b/Check.jsp</result>
+
+            <result name="bcorrect">/b/Correct.jsp</result>
+            <result name="CorrectapplyOk">/b/ContCorrect.jsp</result>
+            <result name="Correctsubmit" type="redirect">/b/Correct.jsp</result>
+
+            <result name="accept">/b/Accept.jsp</result>
+            <result name="acceptapplyOk">/b/ContAccept.jsp</result>
+            <result name="acceptSubmit" type="redirect">/b/Accept.jsp</result>
+
+            <result name="bpayok">/b/PayOk.jsp</result>
+            <result name="Paysubmit" type="redirectAction">LCCont_bpayok.action</result>
+
+            <result name="bpolsign">/b/Sign.jsp</result>
+            <result name="SignapplyOk">/b/ContSign.jsp</result>
+            <result name="signSubmit" type="redirectAction">LCCont_bpolsign.action</result>
+
+            <result name="noAdmin">/b/noAdmin.jsp</result>
+            <result name="limit">/b/limit.jsp</result>
+            <result name="appntSave">/b/Success.jsp</result>
+            <result name="insuredSave">/b/Success.jsp</result>
+            <result name="benefitSave">/b/Success.jsp</result>
+
+            <result name="asearchcomein">/a/services_self/Contsearch.jsp</result>
+            <result name="asearch">/a/services_self/searchCont.jsp</result>
+            <result name="asearchError">/a/services_self/Contsearch.jsp</result>
+
+            <result name="bstatus">/b/StateSearch.jsp</result>
+            <result name="searchState">/b/StateSearch.jsp</result>
+            <result name="noResult">/b/No_result.jsp</result>
+
+        </action>
+
+        <action name="LCGrpCont_*" class="lcGrpContAction" method="{1}">
+            <result name="searchOk">/b/GrpCont.jsp</result>
+            <result name="searchError">/b/No_result.jsp</result>
+            <result name="submit" type="redirect">/b/GrpCont.jsp</result>
+            <result name="newCont">/b/GrpCont.jsp</result>
+            <result name="comein">/b/GrpCont.jsp</result>
+            <result name="contInput">/b/GrpContInput.jsp</result>
+
+            <result name="bgrpcheck">/b/GrpCheck.jsp</result>
+            <result name="applyOk">/b/GrpContCheck.jsp</result>
+            <result name="checkOk">/b/GrpCheck.jsp</result>
+
+            <result name="bGrpcorrect">/b/GrpCorrect.jsp</result>
+            <result name="CorrectapplyOk">/b/GrpContCorrect.jsp</result>
+            <result name="Correctsubmit" type="redirect">/b/GrpCorrect.jsp</result>
+
+            <result name="Grpaccept">/b/GrpAccept.jsp</result>
+            <result name="acceptapplyOk">/b/GrpContAccept.jsp</result>
+            <result name="acceptSubmit" type="redirect">/b/GrpAccept.jsp</result>
+
+            <result name="bGrppayok">/b/GrpPayOk.jsp</result>
+            <result name="GrpPaysubmit" type="redirectAction">LCGrpCont_bGrppayok.action</result>
+
+            <result name="bGrppolsign">/b/GrpSign.jsp</result>
+            <result name="GrpSignapplyOk">/b/GrpContAccept.jsp</result>
+            <result name="grpSignSubmit" type="redirectAction">LCGrpCont_bGrppolsign.action</result>
+
+            <result name="noAdmin">/b/noAdmin.jsp</result>
+            <result name="limit">/b/limit.jsp</result>
+            <result name="appntSave">/b/Success.jsp</result>
+            <result name="insuredSave">/b/Success.jsp</result>
+            <result name="benefitSave">/b/Success.jsp</result>
+
+            <result name="bGrpstatus">/b/GrpStateSearch.jsp</result>
+            <result name="searchState">/b/GrpStateSearch.jsp</result>
+            <result name="noResult">/b/No_result.jsp</result>
+
+        </action>
+
+
+        <action name="LCGrpInsured_*" class="lcGrpInsuredAction" method="{1}">
+            <result name="saveSuccess">/b/GrpContInput.jsp</result>
+            <result name="asaveSuccess">/a/services_pol/grppol.jsp</result>
+
+            <result name="grpinsured">/a/services_pol/grpinsured.jsp</result>
+            <result name="grpNosign">/a/login.jsp</result>
+            <result name="asearchOk">/a/services_pol/grppol.jsp</result>
+            <result name="asearchError">/a/services_pol/grpinsured.jsp</result>
+            <result name="updateSuccess">/b/GrpContInput.jsp</result>
+            <result name="aupdateSuccess">/a/services_pol/grppol.jsp</result>
+            <result name="deleteSuccess">/b/GrpContInput.jsp</result>
+            <result name="peoplesfull">/b/peopleFull.jsp</result>
+            <result name="canotInsured">/b/canotInsured.jsp</result>
+
+            <result name="noAdmin">/b/noAdmin.jsp</result>
+            <result name="limit">/b/limit.jsp</result>
+            <result name="appntSave">/b/Success.jsp</result>
+            <result name="insuredSave">/b/Success.jsp</result>
+            <result name="benefitSave">/b/Success.jsp</result>
+        </action>
+
+    </package>
+</struts>

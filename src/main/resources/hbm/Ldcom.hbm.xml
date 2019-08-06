@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.koali.pojo.Ldcom" table="ldcom" schema="" catalog="test">
+        <id name="comCode">
+            <column name="ComCode" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="comName">
+            <column name="ComName" sql-type="varchar(30)" length="30" not-null="false"/>
+        </property>
+        <property name="comaddress">
+            <column name="Comaddress" sql-type="varchar(100)" length="100" not-null="false"/>
+        </property>
+        <property name="comprovince">
+            <column name="Comprovince" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="comcity">
+            <column name="Comcity" sql-type="varchar(10)" length="10" not-null="false"/>
+        </property>
+        <property name="comperator">
+            <column name="comperator" sql-type="varchar(60)" length="60" not-null="false"/>
+        </property>
+        <property name="makeDate">
+            <column name="MakeDate" sql-type="date(10)" not-null="false"/>
+        </property>
+    </class>
+</hibernate-mapping>
